@@ -182,6 +182,26 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.graalvm.nativeimage</groupId>
+                <artifactId>native-image-maven-plugin</artifactId>
+                <version>${graalvm.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>native-image</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>false</skip>
+                    <imageName>example</imageName>
+                    <buildArgs>
+                        --no-fallback
+                    </buildArgs>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
