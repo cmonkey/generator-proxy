@@ -27,7 +27,7 @@ object ProxyFileGenerator{
           json = jsonProxyInfo.toString
         }catch {
           case ex:Throwable => {
-            println(s"parse proxyInfo to JSON failed = ${ex}" )
+            println(s"parse proxyInfo to JSON failed = ${ex} Prepared manually splicing json")
             val builder = new StringBuilder
             builder.append("{")
             builder.append("\"").append("server").append("\"").append(":").append("\"").append(proxyInfo.getServer).append("\",")
