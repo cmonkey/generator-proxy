@@ -22,6 +22,7 @@
         <joda-time.version>2.10.6</joda-time.version>
         <assertj.version>3.9.1</assertj.version>
         <disruptor.version>3.3.7</disruptor.version>
+        <graalvm.version>20.1.0</graalvm.version>
     </properties>
 
 	<dependencies>
@@ -70,7 +71,12 @@
             <artifactId>joda-time</artifactId>
             <version>${joda-time.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.graalvm.sdk</groupId>
+            <artifactId>graal-sdk</artifactId>
+            <version>${graalvm.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 	<build>
@@ -164,6 +170,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -181,6 +188,42 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            -->
+            <plugin>
+                <groupId>org.graalvm.nativeimage</groupId>
+                <artifactId>native-image-maven-plugin</artifactId>
+                <version>${graalvm.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>native-image</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>false</skip>
+                    <imageName>generator-proxy</imageName>
+                    <buildArgs>
+                        --allow-incomplete-classpath
+                        --report-unsupported-elements-at-runtime
+                        -H:+ReportExceptionStackTraces
+                        --no-server
+                        --initialize-at-build-time=org.reactivestreams.Publisher
+                        --initialize-at-run-time=io.netty.util.NetUtil
+                        --initialize-at-run-time=io.netty.channel.unix.Socket
+                        --initialize-at-run-time=io.netty.channel.unix.IovArray
+                        --initialize-at-run-time=io.netty.channel.epoll.EpollEventLoop
+                        --initialize-at-run-time=io.netty.channel.unix.Errors
+                        --no-fallback
+                        --allow-incomplete-classpath
+                        -H:+ReportUnsupportedElementsAtRuntime
+                        -H:+AllowVMInspection
+                        --allow-incomplete-classpath
+                        -H:ReflectionConfigurationFiles=classes/reflect.json
+                    </buildArgs>
+                </configuration>
             </plugin>
 		</plugins>
 	</build>

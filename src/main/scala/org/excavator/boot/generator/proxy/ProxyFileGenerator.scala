@@ -21,14 +21,34 @@ object ProxyFileGenerator{
 
         val proxyInfo = ProxyInfo(host, port.toInt, password, algorithm)
 
-        val json = classOf[JSON].getMethod("toJSONString", classOf[Any]).invoke(this, proxyInfo)
+        var json = ""
+        try {
+          val jsonProxyInfo = classOf[JSON].getMethod("toJSONString", classOf[Any]).invoke(this, proxyInfo)
+          json = jsonProxyInfo.toString
+        }catch {
+          case ex:Throwable => {
+            println(s"parse proxyInfo to JSON failed = ${ex} Prepared manually splicing json")
+            val builder = new StringBuilder
+            builder.append("{")
+            builder.append("\"").append("server").append("\"").append(":").append("\"").append(proxyInfo.getServer).append("\",")
+            builder.append("\"").append("server_port").append("\"").append(":").append("\"").append(proxyInfo.getServer_port).append("\",")
+            builder.append("\"").append("method").append("\"").append(":").append("\"").append(proxyInfo.getMethod).append("\",")
+            builder.append("\"").append("password").append("\"").append(":").append("\"").append(proxyInfo.getPassword).append("\",")
+            builder.append("\"").append("local_address").append("\"").append(":").append("\"").append(proxyInfo.getLocal_address).append("\",")
+            builder.append("\"").append("local_port").append("\"").append(":").append("\"").append(proxyInfo.getLocal_port).append("\"")
+            builder.append("}")
+
+            json = builder.toString()
+
+          }
+        }
 
         val generatorFile = host + port + ".json"
 
         println(json)
 
         val output = new FileOutputStream(new File(generatorFile))
-        output.write(json.toString.getBytes)
+        output.write(json.getBytes)
         output.close()
       }
     })
