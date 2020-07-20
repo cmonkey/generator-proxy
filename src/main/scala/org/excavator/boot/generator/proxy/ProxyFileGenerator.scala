@@ -43,7 +43,7 @@ object ProxyFileGenerator{
           }
         }
 
-        val generatorFile = host + port + ".json"
+        val generatorFile = host + ":" + port + ".json"
 
         println(json)
 
