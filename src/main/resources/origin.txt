@@ -1,4 +1,12 @@
+码 	198.57.27.218 	2376 	faBAoD54k87UJG7 	aes-256-gcm
+码 	46.29.218.6 	8091 	PCnnH6SQSnfoS27 	aes-256-gcm
+码 	198.57.27.218 	8090 	PCnnH6SQSnfoS27 	aes-256-gcm
 码 	117.28.242.137 	9359 	73117962 	aes-256-cfb
+码 	145.239.1.137 	2375 	faBAoD54k87UJG7 	aes-256-gcm
+码 	139.162.41.174 	8099 	eIW0Dnk69454e6nSwuspv9DmS201tQ0D 	aes-256-cfb
 码 	46.29.218.6 	8090 	PCnnH6SQSnfoS27 	aes-256-gcm
+码 	138.199.42.170 	38747 	RtbLkxbJZpUQ6m8y4qAeLYZj 	aes-256-gcm
 码 	46.29.218.6 	2376 	faBAoD54k87UJG7 	aes-256-gcm
+码 	145.239.1.137 	8091 	PCnnH6SQSnfoS27 	aes-256-gcm
 码 	107.148.200.42 	31131 	dongtaiwang.com 	rc4
+码 	118.107.244.110 	5003 	g5MeD6Ft3CWlJId 	aes-256-gcm
