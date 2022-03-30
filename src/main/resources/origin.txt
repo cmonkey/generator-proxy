@@ -1,9 +1,7 @@
+码 	172.99.190.92 	7307 	FoOiGlkAA9yPEGP 	aes-256-gcm
 码 	117.28.242.137 	9359 	73117962 	aes-256-cfb
-码 	134.195.196.51 	8080 	KixLvKzwjekG00rm 	aes-256-gcm
 码 	169.197.142.99 	443 	pKEW8JPByTVTLtM 	aes-256-gcm
 码 	169.197.142.99 	8090 	PCnnH6SQSnfoS27 	aes-256-gcm
-码 	172.99.190.92 	9102 	e4FCWrgpkji3QY 	aes-256-gcm
-码 	134.195.196.51 	443 	pKEW8JPByTVTLtM 	aes-256-gcm
-码 	134.195.196.51 	8888 	Y6R9pAtvxxzmGC 	aes-256-gcm
+码 	172.99.190.92 	443 	pKEW8JPByTVTLtM 	aes-256-gcm
 码 	169.197.142.99 	6697 	TEzjfAYq2IjtuoS 	aes-256-gcm
 码 	45.79.111.214 	443 	9d6cceaa373bf2c8acb22e60b6a58be6 	aes-256-cfb
