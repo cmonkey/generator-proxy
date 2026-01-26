@@ -20,7 +20,7 @@
         <alchim31.scala.plugin>4.4.0</alchim31.scala.plugin>
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
         <joda-time.version>2.10.6</joda-time.version>
-        <assertj.version>3.9.1</assertj.version>
+        <assertj.version>3.27.7</assertj.version>
         <disruptor.version>3.3.7</disruptor.version>
         <graalvm.version>20.1.0</graalvm.version>
     </properties>
